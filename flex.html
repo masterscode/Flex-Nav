@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Flebible [Flex] Box Nav</title>
+</head>
+<body>
+    <div class="item-container">
+    <div class="home">home</div>
+    <div class="profile"> Profile</div>
+    <div class="search"><input type="search" name="" id="" placeholder="Search"></div>
+    <div class="logout"> logout</div>
+    
+</div>
+
+<style>
+    html, body{box-sizing:border-box; padding:2%; font-family: Arial, Helvetica, sans-serif;}
+div, input{
+    padding: 3px;
+    border-radius:2px;
+}
+.item-container{
+    text-transform:capitalize ;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin:auto;
+    background-color: rgb(47, 101, 126);
+    padding: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.item-container div.search{padding:0px;}
+
+input{padding:2px;border: none; border-bottom: solid whitesmoke thin;}
+
+.item-container div{padding-left: 14px; padding-right: 14px;}
+
+.item-container div, input{
+    text-align: center;
+    font-weight: bold;
+ }
+
+@media all and (max-width: 600px){
+    .item-container{
+        flex-wrap: wrap;
+        flex-direction: row;  
+      }
+
+    .item-container .home, .profile, .logout{
+        flex: 1 1 25%;
+    }
+    .search{order:1;flex-basis: 100%;}
+    input{width: 100%;}
+}
+ 
+@media all and (max-width: 400px){
+    .item-container{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .item-container *{
+        flex: 1 1 100%;
+    }
+    .search{order:1;}
+    input{width:100%;}
+}
+
+@media all and (max-width: 100px){
+    .item-container{
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 0%;
+        font-weight: lighter;
+    }
+    .item-container *{
+        flex: 1 1 100%;
+    }
+    .search{order:1;}
+    input{width:100%;}
+} 
+
+.item-container > div:hover{ background-color: yellow;}
+
+</style>
+</body>
+</html>
